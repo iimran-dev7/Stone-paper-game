@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissor Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!--Landing Page-->
+    <div class="page1" id="landing-page">
+        <h1 class="game-title">Rock Paper Scissor Game</h1>
+        <p id="tagline">Challenge Your Friends, Outsmart the Odds – Rock, Paper, Scissors Showdown!</p>
+        <button class="start-btn pulse">Start Game</button>
+        <footer class="developer-info">
+            <p>Developed by <a href="https://github.com/iimran-dev7" target="_blank" class="developer-name">@iimran.dev</a></p>
+        </footer>
+    </div>
+
+
+    <!-- Game Page -->
+    <div class="page" id="game-page" style="display: none;"> 
+    <h1 id="head">Rock Paper Scissor Game</h1> 
+
+    <div class="container">
+        <div class="choices">
+            <div class="choice" id="rock">
+                <img src="./Images/rock.png">
+            </div>
+            <div class="choice" id="paper">
+                <img src="./Images/paper.png">
+            </div>
+            <div class="choice" id="scissor">
+                <img src="./Images/scissors.png">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="score-board">
+        <div class="score">
+            <p id="user-score">0</p>
+            <p>You</p>
+        </div>
+    
+        <p id="score-mid">:</p>
+        
+        <div class="score">
+            <p id="comp-score">0</p>
+            <p>Comp</p>
+        </div>
+
+    </div>
+
+    <div class="msg-container">
+        <p id="msg">Play your move!</p>
+    </div>
+
+
+    
+    <script src="script.js"></script>
+    
+</body>
+</html>
