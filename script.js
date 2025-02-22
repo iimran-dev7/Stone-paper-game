@@ -32,18 +32,19 @@ const drawGame = () => {
 };
 
 // Function to determine and display the winner
+// Function to determine and display the winner
 const showWinner = (userWin, userChoice, compChoice) => {
     if (userWin) {
         userScore++;
         userScoreSpan.textContent = userScore;
-        msg.innerText = `You win! ${userChoice} beats ${compChoice}`;
+        msg.innerHTML = `<span>You Win!</span> ${userChoice} beats ${compChoice}`;
         msg.style.backgroundColor = "green";
     } else {
         compScore++;
         compScoreSpan.textContent = compScore;
-        msg.innerText = `Computer wins! ${compChoice} beats ${userChoice}`;
+        msg.innerHTML = `<span>Computer Wins!</span> ${compChoice} beats ${userChoice}`;
         msg.style.backgroundColor = "red";
-    } 
+    }
 };
 
 // Function to play the game

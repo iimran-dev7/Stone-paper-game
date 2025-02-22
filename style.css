@@ -97,6 +97,7 @@ body {
   margin-left: 637px;
   margin-bottom: 4rem;
   background-color: #081b31;
+  color: #081b31;
   
 }
 
@@ -133,6 +134,7 @@ transition: opacity 0.5s ease; /* Adjust duration as needed */
   font-size: 2rem;
   font-family: Arial, sans-serif;
   z-index: 1000;
+  margin: 0;
 }
 
 /* Game Choices */
@@ -140,7 +142,7 @@ transition: opacity 0.5s ease; /* Adjust duration as needed */
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 8rem; /* Ensures proper spacing */
+  margin-top: 7rem; /* Ensures proper spacing */
   gap: 3rem;
   flex-wrap: wrap; /* Adjust for smaller screens */
 }
@@ -171,20 +173,34 @@ transition: opacity 0.5s ease; /* Adjust duration as needed */
 /* Scoreboard */
 .score-board {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   font-size: 2rem;
-  gap: 4rem;
   border: 2px solid #081b31;
   height: 8rem;
   width: 25rem;
-  margin: 2rem auto; /* Centers horizontally */
+  margin: 2rem auto;
+  text-align: center;
+  padding: 1rem;
+  position: relative;
+}
+
+/* Centering scores inside the box */
+.score {
+  flex: 1;
   text-align: center;
 }
 
-/* Scoreboard numbers */
 #user-score, #comp-score, #score-mid {
-  font-size: 4rem;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+/* Ensuring text alignment */
+.score p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
 }
 
 /* Message Box */
@@ -192,14 +208,27 @@ transition: opacity 0.5s ease; /* Adjust duration as needed */
   display: flex;
   justify-content: center;
   margin-top: 2rem;
+  width: 100%;
 }
 
 #msg {
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.8rem;
   border: 2px solid #081b31;
-  height: 5rem;
-  width: 25rem;
+  min-height: 5rem;
+  width: 18rem; /* Decreased width */
   color: white;
   background-color: #081b31;
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* First line bold */
+#msg span {
+  display: block;
+  font-weight: bold;
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
 }
