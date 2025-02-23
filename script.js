@@ -9,12 +9,14 @@ startBtn.addEventListener('click', () => {
     }, 500); // Duration of the fade-out effect
 });
 
-// Game page logic  
-let userScore = 0;    // User's score
-let compScore = 0;    // Computer's score  // Maximum rounds
+// Game variables
+let userScore = 0;  
+let compScore = 0;  
+let round = 0;
+const maxRounds = 3;
 
-const choices = document.querySelectorAll('.choice');   // Getting all choices
-const msg = document.querySelector('#msg');            // Message display
+const choices = document.querySelectorAll('.choice');  
+const msg = document.querySelector('#msg');            
 
 const userScoreSpan = document.querySelector('#user-score');
 const compScoreSpan = document.querySelector('#comp-score');
@@ -32,7 +34,6 @@ const drawGame = () => {
 };
 
 // Function to determine and display the winner
-// Function to determine and display the winner
 const showWinner = (userWin, userChoice, compChoice) => {
     if (userWin) {
         userScore++;
@@ -45,6 +46,18 @@ const showWinner = (userWin, userChoice, compChoice) => {
         msg.innerHTML = `<span>Computer Wins!</span> ${compChoice} beats ${userChoice}`;
         msg.style.backgroundColor = "red";
     }
+
+    round++; // Increment round
+    checkGameEnd(); // Check if game should end
+};
+
+// Function to check if user loses
+const userLoses = (userChoice, compChoice) => {
+    return (
+        (userChoice === "rock" && compChoice === "paper") || 
+        (userChoice === "scissors" && compChoice === "rock") ||
+        (userChoice === "paper" && compChoice === "scissors")
+    );
 };
 
 // Function to play the game
@@ -58,42 +71,13 @@ const playGame = (userChoice) => {
         return;
     }
 
-    let userWin = false;
-
-    if ((userChoice === "rock" && compChoice === "scissors") ||
-        (userChoice === "paper" && compChoice === "rock") ||
-        (userChoice === "scissors" && compChoice === "paper")) {
-    }
-
-    showWinner(userWin, userChoice, compChoice, userLoses , gameRounds);
+    let userWin = !userLoses(userChoice, compChoice);
+    showWinner(userWin, userChoice, compChoice);
 };
 
-
-// Adding event listeners for user choices
-choices.forEach((choice) => {
-    choice.addEventListener('click', () => {
-        const userChoice = choice.getAttribute("id");
-        playGame(userChoice);
-
-    });
-});
-
-// loosing paterns of the game 
-
-const userLoses = () => {
-    if ((userChoice === "rock" && compChoice === "paper") || 
-        (userChoice === "scissors" && compChoice === "rock") ||
-        (userChoice === "paper" && compChoice === "scissors")) {
-        userWin = false;
-        compChoice = true;
-        
-    }
-};
-
-const gameRounds = () => {
-    let round = 0;
-    let maxRounds = 3;
-    if ( round === maxRounds) {
+// Function to check if game should end after max rounds
+const checkGameEnd = () => {
+    if (round === maxRounds) {
         if (userScore > compScore) {
             msg.innerText = "You win the game!";
             msg.style.backgroundColor = "green";
@@ -101,11 +85,30 @@ const gameRounds = () => {
             msg.innerText = "Computer wins the game!";
             msg.style.backgroundColor = "red";
         } else {
-            if (userScore === compScore) {
-                msg.innerText = "It's a draw!";
-                msg.style.backgroundColor = "#081b31";
-            }
+            msg.innerText = "It's a draw!";
+            msg.style.backgroundColor = "#081b31";
         }
+
+        // Reset game after displaying result
+        setTimeout(resetGame, 3000);
     }
 };
 
+// Function to reset game
+const resetGame = () => {
+    userScore = 0;
+    compScore = 0;
+    round = 0;
+    userScoreSpan.textContent = userScore;
+    compScoreSpan.textContent = compScore;
+    msg.innerText = "Choose Rock, Paper, or Scissors!";
+    msg.style.backgroundColor = "#081b31";
+};
+
+// Adding event listeners for user choices
+choices.forEach((choice) => {
+    choice.addEventListener('click', () => {
+        const userChoice = choice.getAttribute("id");
+        playGame(userChoice);
+    });
+});
