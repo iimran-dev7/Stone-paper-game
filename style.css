@@ -170,6 +170,18 @@ transition: opacity 0.5s ease; /* Adjust duration as needed */
   border-radius: 50%;
 }
 
+#rock {
+  filter: drop-shadow(2px 2px 20px rgb(236, 66, 94));
+  }
+
+#paper {
+  filter: drop-shadow(2px 2px 20px rgb(180, 56, 225));
+  }
+
+#scissor {
+  filter: drop-shadow(2px 2px 20px rgb(7, 61, 199));
+  } 
+
 /* Scoreboard */
 .score-board {
   display: flex;
