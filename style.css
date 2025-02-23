@@ -131,7 +131,7 @@ transition: opacity 0.5s ease; /* Adjust duration as needed */
   height: 5rem;
   text-align: center;
   line-height: 5rem;
-  font-size: 2rem;
+  font-size: 3rem;
   font-family: Arial, sans-serif;
   z-index: 1000;
   margin: 0;
@@ -177,11 +177,11 @@ transition: opacity 0.5s ease; /* Adjust duration as needed */
   align-items: center;
   font-size: 2rem;
   border: 2px solid #081b31;
-  height: 8rem;
-  width: 25rem;
+  height: 4rem;
+  width: 20rem;
   margin: 2rem auto;
   text-align: center;
-  padding: 1rem;
+  padding: 3rem;
   position: relative;
 }
 
